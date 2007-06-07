@@ -1,17 +1,17 @@
 %define up_name	ocamlnet
 %define name	ocaml-%{up_name}
-%define version	2.2.4
-%define release	%mkrel 5
+%define version	2.2.7
+%define release	%mkrel 1
 %define ocaml_sitelib %(if [ -x /usr/bin/ocamlc ]; then ocamlc -where;fi)/site-lib
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	OCaml internet protocols and conventions
-Source: 	http://downloads.sourceforge.net/ocamlnet/%{up_name}-%{version}.tar.bz2
-Patch0:     %{name}-2.2.4-destdir.patch
-Patch1:     %{name}-2.2.4-fix-shm-test.patch
-URL:		http://ocamlnet.sourceforge.net
+Source: 	http://downloads.sourceforge.net/ocamlnet/%{up_name}-%{version}.tar.gz
+Patch0:		%{name}-2.2.4-destdir.patch
+Patch1:		%{name}-2.2.4-fix-shm-test.patch
+URL:		http://ocamlnet.sourceforge.net/
 License:	GPL
 Group:		Development/Other
 BuildRequires:	ocaml
@@ -25,11 +25,11 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}
 A collection of modules for the Objective Caml language which focus on
 application-level Internet protocols and conventions.
 
-%package devel
+%package	devel
 Summary:	Development files for %{name}
 Group:		Development/Other
-Requires:   ocaml-pcre-devel
-Requires:   ncurses-devel
+Requires:	ocaml-pcre-devel
+Requires:	ncurses-devel
 
 %description devel
 This package contains the development files needed to build applications
