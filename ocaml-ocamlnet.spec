@@ -1,7 +1,7 @@
 %define up_name	ocamlnet
 %define name	ocaml-%{up_name}
 %define version	2.2.7
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 Name:		%{name}
 Version:	%{version}
@@ -88,6 +88,7 @@ rm -rf %{buildroot}
 %{ocaml_sitelib}/smtp/*.cmi
 %dir %{ocaml_sitelib}/shell
 %{ocaml_sitelib}/shell/*.cmi
+%{ocaml_sitelib}/stublibs/*
 
 %files devel
 %defattr(-,root,root)
@@ -124,4 +125,3 @@ rm -rf %{buildroot}
 %exclude %{ocaml_sitelib}/smtp/*.cmi
 %{ocaml_sitelib}/shell/*
 %exclude %{ocaml_sitelib}/shell/*.cmi
-%{ocaml_sitelib}/stublibs/*
