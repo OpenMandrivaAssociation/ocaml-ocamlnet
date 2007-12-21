@@ -18,6 +18,7 @@ BuildRequires:	camlp4
 BuildRequires:  findlib
 BuildRequires:  ocaml-pcre-devel
 BuildRequires:  ncurses-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 A collection of modules for the Objective Caml language which focus on
