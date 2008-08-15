@@ -7,12 +7,13 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Summary:	OCaml internet protocols and conventions
+License:	GPL
+Group:		Development/Other
+URL:		http://ocamlnet.sourceforge.net/
 Source: 	http://downloads.sourceforge.net/ocamlnet/%{up_name}-%{version}.tar.gz
 Patch0:		%{name}-2.2.4-destdir.patch
 Patch1:		%{name}-2.2.4-fix-shm-test.patch
-URL:		http://ocamlnet.sourceforge.net/
-License:	GPL
-Group:		Development/Other
+Patch2:		%{name}-2.2.9-fix-build.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
 BuildRequires:  findlib
@@ -39,6 +40,7 @@ using %{name}.
 %setup -q -n %{up_name}-%{version}
 %patch0 -p 1
 %patch1 -p 1
+%patch2 -p 1
 
 %build
 ./configure -datadir %{_datadir}/ocamlnet # not an autoconf one
