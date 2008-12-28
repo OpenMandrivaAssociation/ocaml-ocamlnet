@@ -16,7 +16,7 @@ Patch1:		%{name}-2.2.4-fix-shm-test.patch
 Patch2:		%{name}-2.2.9-fix-build.patch
 BuildRequires:	ocaml
 BuildRequires:	camlp4
-BuildRequires:  findlib
+BuildRequires:  ocaml-findlib
 BuildRequires:  ocaml-pcre-devel
 BuildRequires:  ncurses-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}
@@ -48,10 +48,10 @@ make all opt
 
 %install
 rm -rf %{buildroot}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}
-install -d -m 755 %{buildroot}/%{ocaml_sitelib}/stublibs
-make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{ocaml_sitelib}" DESTDIR="%{buildroot}"
-rm -f %{buildroot}/%{ocaml_sitelib}/stublibs/*.so.owner
+install -d -m 755 %{buildroot}/%{_libdir}/ocaml
+install -d -m 755 %{buildroot}/%{_libdir}/ocaml/stublibs
+make install OCAMLFIND_INSTFLAGS="-destdir %{buildroot}/%{_libdir}/ocaml" DESTDIR="%{buildroot}"
+rm -f %{buildroot}/%{_libdir}/ocaml/stublibs/*.so.owner
 
 %clean
 rm -rf %{buildroot}
@@ -60,70 +60,36 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc ChangeLog INSTALL LICENSE LICENSE.GPL LICENSE.LGPL RELNOTES
 %doc doc/html-main
-%dir %{ocaml_sitelib}/equeue
-%{ocaml_sitelib}/equeue/*.cmi
-%dir %{ocaml_sitelib}/netcgi1
-%{ocaml_sitelib}/netcgi1/*.cmi
-%dir %{ocaml_sitelib}/netcgi2
-%{ocaml_sitelib}/netcgi2/*.cmi
-%dir %{ocaml_sitelib}/netcgi2-plex
-%{ocaml_sitelib}/netcgi2-plex/*.cmi
-%dir %{ocaml_sitelib}/netclient
-%{ocaml_sitelib}/netclient/*.cmi
-%dir %{ocaml_sitelib}/netplex
-%{ocaml_sitelib}/netplex/*.cmi
-%dir %{ocaml_sitelib}/netshm
-%{ocaml_sitelib}/netshm/*.cmi
-%dir %{ocaml_sitelib}/netstring
-%{ocaml_sitelib}/netstring/*.cmi
-%dir %{ocaml_sitelib}/netsys
-%{ocaml_sitelib}/netsys/*.cmi
-%dir %{ocaml_sitelib}/pop
-%{ocaml_sitelib}/pop/*.cmi
-%dir %{ocaml_sitelib}/rpc
-%{ocaml_sitelib}/rpc/*.cmi
-%dir %{ocaml_sitelib}/rpc-auth-local
-%{ocaml_sitelib}/rpc-auth-local/*.cmi
-%dir %{ocaml_sitelib}/rpc-generator
-%{ocaml_sitelib}/rpc-generator/*.cmi
-%dir %{ocaml_sitelib}/smtp
-%{ocaml_sitelib}/smtp/*.cmi
-%dir %{ocaml_sitelib}/shell
-%{ocaml_sitelib}/shell/*.cmi
-%{ocaml_sitelib}/stublibs/*
+%{_bindir}/*
+%{_datadir}/ocamlnet
+%{_libdir}/ocaml/cgi
+%{_libdir}/ocaml/equeue
+%{_libdir}/ocaml/netcgi1
+%{_libdir}/ocaml/netcgi2
+%{_libdir}/ocaml/netcgi2-plex
+%{_libdir}/ocaml/netclient
+%{_libdir}/ocaml/netplex
+%{_libdir}/ocaml/netshm
+%{_libdir}/ocaml/netstring
+%{_libdir}/ocaml/netsys
+%{_libdir}/ocaml/pop
+%{_libdir}/ocaml/rpc
+%{_libdir}/ocaml/rpc-auth-local
+%{_libdir}/ocaml/rpc-generator
+%{_libdir}/ocaml/smtp
+%{_libdir}/ocaml/shell
+%{_libdir}/ocaml/stublibs/*.so
+%exclude %{_libdir}/ocaml/*/*.a
+%exclude %{_libdir}/ocaml/*/*.cmxa
+%exclude %{_libdir}/ocaml/*/*.cmx
+%exclude %{_libdir}/ocaml/*/*.o
+%exclude %{_libdir}/ocaml/*/*.mli
+
 
 %files devel
 %defattr(-,root,root)
-%{_bindir}/*
-%{_datadir}/ocamlnet
-%{ocaml_sitelib}/cgi
-%{ocaml_sitelib}/equeue/*
-%exclude %{ocaml_sitelib}/equeue/*.cmi
-%{ocaml_sitelib}/netcgi1/*
-%exclude %{ocaml_sitelib}/netcgi1/*.cmi
-%{ocaml_sitelib}/netcgi2/*
-%exclude %{ocaml_sitelib}/netcgi2/*.cmi
-%{ocaml_sitelib}/netcgi2-plex/*
-%exclude %{ocaml_sitelib}/netcgi2-plex/*.cmi
-%{ocaml_sitelib}/netclient/*
-%exclude %{ocaml_sitelib}/netclient/*.cmi
-%{ocaml_sitelib}/netplex/*
-%exclude %{ocaml_sitelib}/netplex/*.cmi
-%{ocaml_sitelib}/netshm/*
-%exclude %{ocaml_sitelib}/netshm/*.cmi
-%{ocaml_sitelib}/netstring/*
-%exclude %{ocaml_sitelib}/netstring/*.cmi
-%{ocaml_sitelib}/netsys/*
-%exclude %{ocaml_sitelib}/netsys/*.cmi
-%{ocaml_sitelib}/pop/*
-%exclude %{ocaml_sitelib}/pop/*.cmi
-%{ocaml_sitelib}/rpc/*
-%exclude %{ocaml_sitelib}/rpc/*.cmi
-%{ocaml_sitelib}/rpc-auth-local/*
-%exclude %{ocaml_sitelib}/rpc-auth-local/*.cmi
-%{ocaml_sitelib}/rpc-generator/*
-%exclude %{ocaml_sitelib}/rpc-generator/*.cmi
-%{ocaml_sitelib}/smtp/*
-%exclude %{ocaml_sitelib}/smtp/*.cmi
-%{ocaml_sitelib}/shell/*
-%exclude %{ocaml_sitelib}/shell/*.cmi
+%{_libdir}/ocaml/*/*.a
+%{_libdir}/ocaml/*/*.cmx
+%{_libdir}/ocaml/*/*.cmxa
+%{_libdir}/ocaml/*/*.o
+%{_libdir}/ocaml/*/*.mli
