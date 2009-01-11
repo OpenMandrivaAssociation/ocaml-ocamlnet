@@ -84,7 +84,7 @@ using %{name}.
 %package        nethttpd
 Summary:        Ocamlnet HTTP daemon
 License:        GPLv2+
-Group:          Development/Libraries
+Group:		Development/Other
 Requires:       %{name} = %{version}-%{release}
 
 %description    nethttpd
@@ -96,7 +96,7 @@ for serving web services.
 %package        nethttpd-devel
 Summary:        Development files for %{name}-nethttpd
 License:        GPLv2+
-Group:          Development/Libraries
+Group:		Development/Other
 Requires:       %{name}-nethttpd = %{version}-%{release}
 
 %description    nethttpd-devel
