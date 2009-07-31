@@ -27,6 +27,8 @@ BuildRequires:  pcre-devel
 BuildRequires:  openssl-devel
 BuildRequires:  tcl-devel
 
+Requires:       ocaml-pcre
+
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
