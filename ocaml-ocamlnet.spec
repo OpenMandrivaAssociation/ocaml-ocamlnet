@@ -1,7 +1,7 @@
 %define up_name	ocamlnet
 %define name	ocaml-%{up_name}
 %define version	2.2.9
-%define release	%mkrel 4
+%define release	%mkrel 5
 
 Name:		%{name}
 Version:	%{version}
