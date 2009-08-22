@@ -163,7 +163,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc ChangeLog INSTALL LICENSE LICENSE.GPL LICENSE.LGPL RELNOTES
-%doc doc/html-main
 %{_bindir}/*
 %{_libdir}/ocaml/equeue
 %{_libdir}/ocaml/equeue-gtk2
@@ -197,11 +196,15 @@ rm -rf %{buildroot}
 
 %files devel
 %defattr(-,root,root)
+%doc doc/html-main
 %{_libdir}/ocaml/*/*.a
 %{_libdir}/ocaml/*/*.cmx
 %{_libdir}/ocaml/*/*.cmxa
 %{_libdir}/ocaml/*/*.o
 %{_libdir}/ocaml/*/*.mli
+%exclude %{_libdir}/ocaml/nethttpd-for-netcgi1
+%exclude %{_libdir}/ocaml/nethttpd-for-netcgi2
+%exclude %{_libdir}/ocaml/nethttpd
 
 
 %files nethttpd
@@ -215,7 +218,10 @@ rm -rf %{buildroot}
 
 %files nethttpd-devel
 %defattr(-,root,root)
-%{_libdir}/ocaml/*/*.a
-%{_libdir}/ocaml/*/*.cmxa
-%{_libdir}/ocaml/*/*.mli
+%{_libdir}/ocaml/nethttpd-for-netcgi1/*.a
+%{_libdir}/ocaml/nethttpd-for-netcgi1/*.cmxa
+%{_libdir}/ocaml/nethttpd-for-netcgi1/*.mli
+%{_libdir}/ocaml/nethttpd-for-netcgi2/*.a
+%{_libdir}/ocaml/nethttpd-for-netcgi2/*.cmxa
+%{_libdir}/ocaml/nethttpd-for-netcgi2/*.mli
 
