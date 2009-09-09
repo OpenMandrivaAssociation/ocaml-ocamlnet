@@ -77,6 +77,7 @@ In detail, the following features are available:
 Summary:	Development files for %{name}
 Group:		Development/Other
 Requires:	%{name} = %{version}-%{release}
+Requires:       ocaml-pcre-devel
 
 %description devel
 This package contains the development files needed to build applications
