@@ -26,6 +26,7 @@ BuildRequires:  ocaml-lablgtk2-devel
 BuildRequires:  pcre-devel
 BuildRequires:  openssl-devel
 BuildRequires:  tcl-devel
+BuildRequires:  ocaml-cryptgps-devel
 
 Requires:       ocaml-pcre
 
@@ -128,9 +129,8 @@ popd
   -with-nethttpd \
   -disable-apache \
   -enable-ssl \
-  -enable-gtk2
-# In future:
-# -with-rpc-auth-dh (requires cryptgps)
+  -enable-gtk2 \
+  -with-rpc-auth-dh
 
 # Bletcherous hack to get that extra include path in camlp4 builds.
 echo -e '#!/bin/sh\n%{_bindir}/camlp4 -I %{_libdir}/ocaml/camlp4/Camlp4Parsers "$@"' > camlp4; chmod 0755 camlp4; export PATH=`pwd`:$PATH
@@ -184,6 +184,7 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/rpc-ssl
 %{_libdir}/ocaml/smtp
 %{_libdir}/ocaml/shell
+%{_libdir}/ocaml/rpc-auth-dh
 %{_libdir}/ocaml/stublibs/*.so
 %{_libdir}/ocaml/stublibs/*.so.owner
 %exclude %{_libdir}/ocaml/*/*.a
