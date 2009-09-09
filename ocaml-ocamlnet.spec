@@ -1,20 +1,20 @@
-%define up_name	ocamlnet
-%define name	ocaml-%{up_name}
-%define version	2.2.9
-%define release	%mkrel 6
+%define up_name ocamlnet
+%define name    ocaml-%{up_name}
+%define version 2.2.9
+%define release %mkrel 6
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Summary:	OCaml internet protocols and conventions
+Name:           %{name}
+Version:        %{version}
+Release:        %{release}
+Summary:        OCaml internet protocols and conventions
 License:        BSD
-Group:		Development/Other
-URL:		http://projects.camlcity.org/projects/ocamlnet.html
-Source: 	http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
-Patch0:		%{name}-2.2.4-destdir.patch
-Patch1:		%{name}-2.2.4-fix-shm-test.patch
-Patch2:		%{name}-2.2.9-fix-build.patch
-Patch3:		ocamlnet-ocaml310.patch
+Group:          Development/Other
+URL:            http://projects.camlcity.org/projects/ocamlnet.html
+Source:         http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
+Patch0:         %{name}-2.2.4-destdir.patch
+Patch1:         %{name}-2.2.4-fix-shm-test.patch
+Patch2:         %{name}-2.2.9-fix-build.patch
+Patch3:         ocamlnet-ocaml310.patch
 BuildRequires:  ocaml >= 3.10.2
 BuildRequires:  camlp4
 BuildRequires:  ocaml-findlib
@@ -29,7 +29,7 @@ BuildRequires:  tcl-devel
 
 Requires:       ocaml-pcre
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Ocamlnet is an ongoing effort to collect modules, classes and
@@ -73,10 +73,10 @@ In detail, the following features are available:
  * smtp and pop are two further client implementations for the SMTP
    and POP3 protocols.
 
-%package	devel
-Summary:	Development files for %{name}
-Group:		Development/Other
-Requires:	%{name} = %{version}-%{release}
+%package        devel
+Summary:        Development files for %{name}
+Group:          Development/Other
+Requires:       %{name} = %{version}-%{release}
 Requires:       ocaml-pcre-devel
 
 %description devel
@@ -87,7 +87,7 @@ using %{name}.
 %package        nethttpd
 Summary:        Ocamlnet HTTP daemon
 License:        GPLv2+
-Group:		Development/Other
+Group:          Development/Other
 Requires:       %{name} = %{version}-%{release}
 
 %description    nethttpd
@@ -99,7 +99,7 @@ for serving web services.
 %package        nethttpd-devel
 Summary:        Development files for %{name}-nethttpd
 License:        GPLv2+
-Group:		Development/Other
+Group:          Development/Other
 Requires:       %{name}-nethttpd = %{version}-%{release}
 
 %description    nethttpd-devel
