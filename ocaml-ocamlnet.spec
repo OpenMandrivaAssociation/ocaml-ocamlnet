@@ -164,7 +164,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc ChangeLog INSTALL LICENSE LICENSE.GPL LICENSE.LGPL RELNOTES
-%{_bindir}/*
 %{_libdir}/ocaml/equeue
 %{_libdir}/ocaml/equeue-gtk2
 %{_libdir}/ocaml/equeue-ssl
