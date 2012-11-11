@@ -1,0 +1,10 @@
+diff -Naur --exclude '*~' ocamlnet-2.2.9/src/rpc-auth-local/Makefile ocamlnet-2.2.9-fix-build/src/rpc-auth-local/Makefile
+--- ocamlnet-2.2.9/src/rpc-auth-local/Makefile	2007-11-01 23:12:33.000000000 +0100
++++ ocamlnet-2.2.9-fix-build/src/rpc-auth-local/Makefile	2008-08-15 16:28:43.000000000 +0200
+@@ -1,5 +1,6 @@
+ TOP_DIR=../..
+ 
++CC_OPTIONS += -ccopt -D_GNU_SOURCE
+ PKGNAME  = rpc-auth-local
+ OBJECTS  = rpc_auth_local.cmo
+ COBJECTS = rpclocal.o

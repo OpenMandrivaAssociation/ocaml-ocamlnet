@@ -1,0 +1,12 @@
+diff -Naur ocamlnet-2.2.4/Makefile.rules ocamlnet-2.2.4.destdir/Makefile.rules
+--- ocamlnet-2.2.4/Makefile.rules	2007-01-07 17:00:59.000000000 +0100
++++ ocamlnet-2.2.4.destdir/Makefile.rules	2007-02-20 15:41:24.000000000 +0100
+@@ -122,7 +122,7 @@
+ .PHONY: install-findlib
+ install-findlib: META
+ 	files=`$(COLLECT_FILES) *.mli *.cmi *.cma *.cmxa *.a dll* META $(INSTALL_EXTRA)` && \
+-	$(OCAMLFIND) install $(PKGNAME) $$files
++	$(OCAMLFIND) install $(OCAMLFIND_INSTFLAGS) $(PKGNAME) $$files
+ 
+ .PHONY: uninstall-findlib
+ uninstall-findlib:
