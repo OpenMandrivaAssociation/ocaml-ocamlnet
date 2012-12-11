@@ -226,3 +226,85 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/nethttpd-for-netcgi2/*.cmxa
 %{_libdir}/ocaml/nethttpd-for-netcgi2/*.mli
 
+
+
+%changelog
+* Wed May 09 2012 Crispin Boylan <crisb@mandriva.org> 2.2.9-10
++ Revision: 797777
+- Rebuild
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - relink against libpcre.so.1
+
+* Mon Sep 14 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-8mdv2011.0
++ Revision: 440706
+- rebuild
+
+* Wed Sep 09 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-7mdv2010.0
++ Revision: 436141
+- added support for cryptgps
+- the devel package requires ocaml-pcre-devel
+
+* Sat Aug 22 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-6mdv2010.0
++ Revision: 419709
+- incremented mkrel
+- corrected the split
+
+* Mon Aug 10 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-5mdv2010.0
++ Revision: 413869
+- incremented mkrel
+- corrected Requires
+
+* Sat Jun 27 2009 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.9-4mdv2010.0
++ Revision: 390090
+- rebuild
+
+* Thu Jun 11 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-3mdv2010.0
++ Revision: 385257
+- pcre dep updated
+
+* Sun Jan 11 2009 Florent Monnier <blue_prawn@mandriva.org> 2.2.9-2mdv2009.1
++ Revision: 328195
+- corrected group
+- build/install all the modules
+- update the home page
+- a more detailed description
+- imported a patch from fedora
+  (modifications made with the help of the fedora's spec made by Richard W.M. Jones)
+
+* Mon Dec 29 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.9-1mdv2009.1
++ Revision: 320723
+- move non-devel files in main package
+- site-lib hierarchy doesn't exist anymore
+
+* Fri Aug 15 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.9-1mdv2009.0
++ Revision: 272354
+- fix build with latest glibc
+- new version
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Fri Mar 07 2008 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.7-4mdv2008.1
++ Revision: 181156
+- rebuild
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Sun Sep 02 2007 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.7-3mdv2008.0
++ Revision: 78371
+- move stup libs into non-devel package
+
+* Sat Sep 01 2007 Guillaume Rousse <guillomovitch@mandriva.org> 2.2.7-2mdv2008.0
++ Revision: 77685
+- drop macro definition, now in rpm-mandriva-setup
+  ship .cmi file in non-devel subpackage
+
+* Thu Jun 07 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 2.2.7-1mdv2008.0
++ Revision: 36815
+- new release: 2.2.7
+
