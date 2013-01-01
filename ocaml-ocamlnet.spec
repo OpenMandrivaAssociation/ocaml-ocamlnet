@@ -1,20 +1,17 @@
 %define up_name ocamlnet
 %define name    ocaml-%{up_name}
-%define version 2.2.9
-%define release 10
 
 Name:           %{name}
-Version:        %{version}
-Release:        %{release}
+Version:        3.6.1
+Release:        1
 Summary:        OCaml internet protocols and conventions
 License:        BSD
 Group:          Development/Other
 URL:            http://projects.camlcity.org/projects/ocamlnet.html
-Source:         http://download.camlcity.org/download/%{up_name}-%{version}.tar.gz
-Patch0:         %{name}-2.2.4-destdir.patch
-Patch1:         %{name}-2.2.4-fix-shm-test.patch
+Source:         http://download.camlcity.org/download/ocamlnet-%{version}.tar.gz
+Patch0:         %{name}-3.6.1-destdir.patch
+Patch1:         %{name}-3.6.1-fix-shm-test.patch
 Patch2:         %{name}-2.2.9-fix-build.patch
-Patch3:         ocamlnet-ocaml310.patch
 BuildRequires:  ocaml >= 3.10.2
 BuildRequires:  camlp4
 BuildRequires:  ocaml-findlib
@@ -29,8 +26,6 @@ BuildRequires:  tcl-devel
 BuildRequires:  ocaml-cryptgps-devel
 
 Requires:       ocaml-pcre
-
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Ocamlnet is an ongoing effort to collect modules, classes and
@@ -113,9 +108,6 @@ files for developing applications that use %{name}-nethttpd.
 %patch0 -p 1
 %patch1 -p 1
 %patch2 -p 1
-pushd src/equeue-gtk1
-%patch3 -p2
-popd
 
 %build
 %define ocamlnet_datadir %{_datadir}/%{name}
@@ -147,8 +139,7 @@ make install \
   DESTDIR="%{buildroot}"
 
 # cgi/META conflicts with mod_caml
-rm %{buildroot}/%{_libdir}/ocaml/cgi/META
-rmdir %{buildroot}/%{_libdir}/ocaml/cgi
+rm -rf %{buildroot}/%{_libdir}/ocaml/cgi
 
 # rpc-generator/dummy.mli is empty and according to Gerd Stolpmann can
 # be deleted safely.  This avoids an rpmlint warning.
@@ -159,7 +150,6 @@ strip %{buildroot}/%{_libdir}/ocaml/stublibs/*.so
 
 
 %clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -168,10 +158,13 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/equeue-gtk2
 %{_libdir}/ocaml/equeue-ssl
 %{_libdir}/ocaml/equeue-tcl
-%{_libdir}/ocaml/netcgi1
+#%{_libdir}/ocaml/netcgi1
+%{_libdir}/ocaml/netcamlbox
 %{_libdir}/ocaml/netcgi2
 %{_libdir}/ocaml/netcgi2-plex
 %{_libdir}/ocaml/netclient
+%{_libdir}/ocaml/netgssapi
+%{_libdir}/ocaml/netmulticore
 %{_libdir}/ocaml/netplex
 %{_libdir}/ocaml/netshm
 %{_libdir}/ocaml/netstring
@@ -203,14 +196,14 @@ rm -rf %{buildroot}
 %{_libdir}/ocaml/*/*.cmxa
 %{_libdir}/ocaml/*/*.o
 %{_libdir}/ocaml/*/*.mli
-%exclude %{_libdir}/ocaml/nethttpd-for-netcgi1
+#%exclude %{_libdir}/ocaml/nethttpd-for-netcgi1
 %exclude %{_libdir}/ocaml/nethttpd-for-netcgi2
 %exclude %{_libdir}/ocaml/nethttpd
 
 
 %files nethttpd
 %defattr(-,root,root)
-%{_libdir}/ocaml/nethttpd-for-netcgi1
+#%{_libdir}/ocaml/nethttpd-for-netcgi1
 %{_libdir}/ocaml/nethttpd-for-netcgi2
 %{_libdir}/ocaml/nethttpd
 %exclude %{_libdir}/ocaml/*/*.a
@@ -219,12 +212,12 @@ rm -rf %{buildroot}
 
 %files nethttpd-devel
 %defattr(-,root,root)
-%{_libdir}/ocaml/nethttpd-for-netcgi1/*.a
-%{_libdir}/ocaml/nethttpd-for-netcgi1/*.cmxa
-%{_libdir}/ocaml/nethttpd-for-netcgi1/*.mli
-%{_libdir}/ocaml/nethttpd-for-netcgi2/*.a
-%{_libdir}/ocaml/nethttpd-for-netcgi2/*.cmxa
-%{_libdir}/ocaml/nethttpd-for-netcgi2/*.mli
+#%{_libdir}/ocaml/nethttpd-for-netcgi1/*.a
+#%{_libdir}/ocaml/nethttpd-for-netcgi1/*.cmxa
+#%{_libdir}/ocaml/nethttpd-for-netcgi1/*.mli
+%{_libdir}/ocaml/nethttpd/*.a
+%{_libdir}/ocaml/nethttpd/*.cmxa
+%{_libdir}/ocaml/nethttpd/*.mli
 
 
 
@@ -307,4 +300,5 @@ rm -rf %{buildroot}
 * Thu Jun 07 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 2.2.7-1mdv2008.0
 + Revision: 36815
 - new release: 2.2.7
+
 

@@ -1,2 +1,4 @@
+removed_sources:
+  ocamlnet-2.2.9.tar.gz: ca073c60f86fede60d4c479e5589127010482804
 sources:
-  "ocamlnet-2.2.9.tar.gz": ca073c60f86fede60d4c479e5589127010482804
+  ocamlnet-3.6.1.tar.gz: 49b5376f0a2bbcd9b0b871f0e7aec7a34d39e941
