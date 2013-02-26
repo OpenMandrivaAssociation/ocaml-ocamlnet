@@ -2,7 +2,7 @@
 %define name    ocaml-%{up_name}
 
 Name:           %{name}
-Version:        3.6.1
+Version:        3.6.3
 Release:        1
 Summary:        OCaml internet protocols and conventions
 License:        BSD
