@@ -3,7 +3,7 @@
 
 Name:           %{name}
 Version:        3.6.3
-Release:        1
+Release:        2
 Summary:        OCaml internet protocols and conventions
 License:        BSD
 Group:          Development/Other
