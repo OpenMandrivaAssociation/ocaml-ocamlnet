@@ -7,7 +7,7 @@ Release:        2
 Summary:        OCaml internet protocols and conventions
 License:        BSD
 Group:          Development/Other
-URL:            http://projects.camlcity.org/projects/ocamlnet.html
+URL:            https://projects.camlcity.org/projects/ocamlnet.html
 Source:         http://download.camlcity.org/download/ocamlnet-%{version}.tar.gz
 Patch0:         %{name}-3.6.1-destdir.patch
 Patch1:         %{name}-3.6.1-fix-shm-test.patch
