@@ -12,6 +12,11 @@ Source:         http://download.camlcity.org/download/ocamlnet-%{version}.tar.gz
 Patch0:         %{name}-3.6.1-destdir.patch
 Patch1:         %{name}-3.6.1-fix-shm-test.patch
 Patch2:         %{name}-2.2.9-fix-build.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:  ocaml >= 3.10.2
 BuildRequires:  camlp4
 BuildRequires:  ocaml-findlib
